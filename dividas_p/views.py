@@ -1,9 +1,10 @@
+from xmlrpc.server import list_public_methods
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as login_d
 
-from dividas_p.models import PessoaF
+from dividas_p.models import PessoaF, Divida
 # Create your views here.
 def login(request):
     if request.method == "GET":
@@ -40,5 +41,24 @@ def cadastro(request):
     
 
 def dividas(request):
-    return render(request, 'dividas.html')
+    pessoas = PessoaF.objects.all()
+    print(pessoas.values())
+    for i in pessoas:
+        print(i.dividas.values())
+    dividas  = [set_to_dict(query_set) for  query_set in pessoas]
+    print(dividas)
+    context = {
+        'dividas': dividas
+    }
 
+    return render(request, 'dividas.html', context)
+
+
+def set_to_dict(query_set):
+    lista_dividas = {}
+    lista_dividas['nome'] = query_set.nome
+    lista_dividas['cpf'] = query_set.cpf
+    lista_dividas['dividas'] = {
+        'dividas': [divida for divida in query_set.dividas.values()]
+    }
+    return lista_dividas
