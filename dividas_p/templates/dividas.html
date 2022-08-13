@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'CSS/dividas.css' %}">
+
     <title>Dividas</title>
 </head>
 <body>
@@ -15,33 +18,37 @@
         </form>
     </nav>
     <main>
-        <p>Nome: Deziene dos santos CPF: 07064987554 </p>
-        <table>
-            <thead>
-                <th>
-                    <tr>
-                        <th>
-                            Produto:
-                        </th>
-                        <th>
-                            Local:
-                        </th>
-                        <th>
-                            Data:
-                        </th>
-                        <th>
-                            Valor
-                        </th>
-                    </tr>
-                </th>
-            </thead>
-            <tbody>
-                <td>Hanbuger</td>
-                <td>Tia tam</td>
-                <td>24/10/2022</td>
-                <td>22.50</td>
-            </tbody>
-        </table>
+        {% for pessoa in pessoas %}
+        <P> Nome: {{pessoa.nome}} CPF: {{pessoa.cpf}}</P>
+            {% for divida in pessoa.dividas %}
+            <table>
+                <thead>
+                    <th>
+                        <tr>
+                            <th>
+                                Produto:
+                            </th>
+                            <th>
+                                Local:
+                            </th>
+                            <th>
+                                Data:
+                            </th>
+                            <th>
+                                Valor
+                            </th>
+                        </tr>
+                    </th>
+                </thead>
+                <tbody>
+                    <td>{{divida.nome}}</td>
+                    <td>{{divida.local}}</td>
+                    <td>{{divida.data}}</td>
+                    <td>{{divida.valor}}</td>
+                </tbody>
+            </table>
+            {% endfor %}
+        {% endfor %}
     </main>
 </body>
 </html>

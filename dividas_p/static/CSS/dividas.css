@@ -1,0 +1,18 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: #ecf0f1;
+}
+th {
+ border-left: 1px solid red ;
+ border-right: 1px solid red ;
+}
+table,td {
+border: 1px solid red;
+}
+
+table{
+border-collapse: collapse;
+}

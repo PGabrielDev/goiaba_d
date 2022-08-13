@@ -48,7 +48,7 @@ def dividas(request):
     dividas  = [set_to_dict(query_set) for  query_set in pessoas]
     print(dividas)
     context = {
-        'dividas': dividas
+        'pessoas': dividas
     }
 
     return render(request, 'dividas.html', context)
@@ -58,7 +58,6 @@ def set_to_dict(query_set):
     lista_dividas = {}
     lista_dividas['nome'] = query_set.nome
     lista_dividas['cpf'] = query_set.cpf
-    lista_dividas['dividas'] = {
-        'dividas': [divida for divida in query_set.dividas.values()]
-    }
+    lista_dividas['dividas'] = [divida for divida in query_set.dividas.values()]
+    
     return lista_dividas
