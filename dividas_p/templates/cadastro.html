@@ -1,22 +1,30 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADASTRO</title>
     <link rel="stylesheet" href="{% static 'CSS/cadastro.css' %}">
-
-    <title>LOGIN</title>
 </head>
+
 <body>
     <div class="form">
-        <form action="{% url 'login' %}" method="post">  {% csrf_token %}
-            <h1>LOGIN</h1>
+        
+        <form action="{% url 'cadastro' %}" method="post">  {% csrf_token %}
+            <h1>CADASTRO</h1>
+                <input type="number" name="cpf" id="cpf" placeholder="cpf">
+
+                <input type="text" name="first_name" id="first_name" placeholder="nome">
+
                 <input type="text" name="user_login" id="user_login" placeholder="login">
+
                 <input type="password" name="senha" id="senha" placeholder="senha">
-            <button type="submit">ENTRAR</button>
+            <button type="submit">CADASTRAR</button>
         </form>
     </div>
 </body>
+
 </html>
