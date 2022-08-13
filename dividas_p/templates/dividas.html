@@ -10,13 +10,15 @@
     <title>Dividas</title>
 </head>
 <body>
-    <nav>
-        TABELA DE DIVIDAS:
-        <form action="" method="post">
-            <label for="pesquisa">Busca por CPF</label>
-            <input type="text" name="pesquisa" id="pesquisa">
-        </form>
-    </nav>
+    <header>
+        <nav>
+            TABELA DE DIVIDAS:
+            <form action="" method="post">
+                <label for="pesquisa">Busca por CPF</label>
+                <input type="text" name="pesquisa" id="pesquisa">
+            </form>
+        </nav>
+    </header>
     <main>
         {% for pessoa in pessoas %}
         <P> Nome: {{pessoa.nome}} CPF: {{pessoa.cpf}}</P>
