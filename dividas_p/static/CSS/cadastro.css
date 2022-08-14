@@ -36,6 +36,14 @@ button {
     color: #ecf0f1;
 }
 
+a {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #3498db;
+    color: #ecf0f1;
+}
+
 input{
     border: none;
     border-bottom: 1px solid #bdc3c7;

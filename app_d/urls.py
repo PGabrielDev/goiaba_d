@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
+from dividas_p.views import login
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dividas/', include('dividas_p.urls'))
+    path('accounts/login/', login, name='login'),
+    path('dividas/', include('dividas_p.urls')),
+    path('', login, name='login')
 ]

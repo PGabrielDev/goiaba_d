@@ -11,19 +11,50 @@ nav {
     padding: 10px;
 }
 
-th {
- border-left: 1px solid red ;
- border-right: 1px solid red;
-}
-table,td {
-border: 1px solid red;
-}
-
-
-table,td,th {
+input {
+    background-color:#3498ca; 
+    border: none;
     padding: 2px;
+}
+
+
+p {
+    padding: 3px;
+}
+
+
+table{
+    margin: 3px;
+    table-layout: fixed;
+}
+
+
+thead {
+    background-color:#bdc3c7;
+    padding: 5px;
+}
+th {
+    padding: 3px;
+}
+td {
+    padding: 3px;
 }
 
 table{
 border-collapse: collapse;
+margin-top: 5px;
+}
+
+main {
+    margin-top: 10px;
+    display: grid;
+}
+.cpf {
+    margin-bottom: 10px;
+}
+.conteudo{
+    display: grid;
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
 }

@@ -20,37 +20,55 @@
         </nav>
     </header>
     <main>
-        {% for pessoa in pessoas %}
-        <P> Nome: {{pessoa.nome}} CPF: {{pessoa.cpf}}</P>
-            {% for divida in pessoa.dividas %}
+        <div class="conteudo">
+            {% for pessoa in pessoas %}
+            <P>Nome: {{pessoa.nome}} </P>
+            <p class="cpf">CPF: {{pessoa.cpf}}</p>
             <table>
                 <thead>
-                    <th>
                         <tr>
                             <th>
-                                Produto:
+                                PRODUTOS
                             </th>
                             <th>
-                                Local:
+                                LOCAL
                             </th>
                             <th>
-                                Data:
+                                DATA
                             </th>
                             <th>
-                                Valor
+                                VALOR
+                            </th>
+                            <th>
+                                TOTAL
                             </th>
                         </tr>
-                    </th>
                 </thead>
                 <tbody>
-                    <td>{{divida.nome}}</td>
-                    <td>{{divida.local}}</td>
-                    <td>{{divida.data}}</td>
-                    <td>{{divida.valor}}</td>
-                </tbody>
+                {% for divida in pessoa.dividas %}
+                    
+                    
+                        <tr>
+                            <td>{{divida.nome}}</td>
+                            <td>{{divida.local}}</td>
+                            <td>{{divida.data}}</td>
+                            <td>{{divida.valor}}</td>
+                        </tr>
+                    
+                
+                {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{pessoa.total}}</td>
+                </tr>
+            </tbody>
             </table>
             {% endfor %}
-        {% endfor %}
+        </div>
+        
     </main>
 </body>
 </html>
