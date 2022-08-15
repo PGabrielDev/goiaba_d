@@ -1,5 +1,6 @@
+from pyexpat import model
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 class PessoaF(models.Model):
     nome = models.TextField('Nome')
@@ -18,3 +19,8 @@ class Divida(models.Model):
     status = models.BooleanField('Status')
     pessoas = models.ForeignKey(PessoaF, on_delete=models.PROTECT, related_name='dividas')
 
+
+class PessoaFUser(models.Model):
+    pessoaF = models.ForeignKey(PessoaF, on_delete=models.PROTECT, related_name='pessoa_user')
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='user_pessoa')
+    cpf = models.TextField('CPF')

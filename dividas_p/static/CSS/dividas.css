@@ -55,6 +55,6 @@ main {
 .conteudo{
     display: grid;
     text-align: left;
-    width: 80%;
+    width: 100vw;
     margin: 0 auto;
 }
