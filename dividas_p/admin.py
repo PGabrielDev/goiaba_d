@@ -1,9 +1,10 @@
 from django.contrib import admin
 from .models import PessoaF, Divida
+from import_export.admin import ImportExportActionModelAdmin
 # Register your models here.
 
 @admin.register(PessoaF)
-class PessoaFAdmin(admin.ModelAdmin):
+class PessoaFAdmin(ImportExportActionModelAdmin):
     list_display = [
         'nome',
         'idade',
@@ -13,7 +14,7 @@ class PessoaFAdmin(admin.ModelAdmin):
     ]
 
 @admin.register(Divida)
-class DividadeAdmin(admin.ModelAdmin):
+class DividadeAdmin(ImportExportActionModelAdmin):
     list_display = [
         'nome',
         'local',
@@ -22,3 +23,4 @@ class DividadeAdmin(admin.ModelAdmin):
         'status',
         'pessoas'
     ]
+    list_filter = ['pessoas']
